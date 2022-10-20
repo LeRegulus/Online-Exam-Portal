@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<br><br><br><br>
+<section class="section contact" data-section="section6">
+  <div class="container">
+    <div class="row">
+      <br><br><br>
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>Sign In Here</h2>
+        </div>
+      </div>
+      <div class="col-md-6">
+
+        <!-- Do you need a working HTML contact-form script?
+
+                    Please visit https://templatemo.com/contact page -->
+
+        <form id="contact" action="" method="post">
+          <img src="assets/login.png" alt="">
+        </form>
+      </div>
+      <div class="col-md-6">
+        <form (ngSubmit)="handleLogin()">
+          <div class="row justify-content-around">
+            <div class="col-md-12">
+              <h1 class="h1">Sign In</h1>
+            </div>
+            <div class="col-md-10">
+              <mat-form-field class="field" appearance="fill">
+                <input  required name="username" [(ngModel)] = "authRequest.username" type="text" matInput placeholder="Your Username">
+              </mat-form-field>
+            </div>
+            <div class="col-md-10">
+              <mat-form-field class="field" appearance="fill" >
+                <input required name="password" [(ngModel)]= "authRequest.password" type="password"  matInput placeholder="Your password">
+              </mat-form-field>
+            </div>
+
+            <button mat-button type="submit">Sign In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

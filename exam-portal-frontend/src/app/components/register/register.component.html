@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<br><br><br><br>
+<section class="section contact" data-section="section6">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>Register Here</h2>
+        </div>
+      </div>
+      <div class="col-md-6">
+
+        <!-- Do you need a working HTML contact-form script?
+
+                    Please visit https://templatemo.com/contact page -->
+
+        <form id="contact" action="" method="post">
+          <img src="assets/registration.jpg" alt="">
+        </form>
+      </div>
+      <div class="col-md-6">
+        <form (ngSubmit)="handleRegister()">
+          <div class="row justify-content-around">
+            <div class="col-md-5">
+              <mat-form-field class="field" appearance="fill">
+                <input required name="firstName" [(ngModel)] = "user.firstName" type="text" matInput placeholder="Your firstName">
+              </mat-form-field>
+            </div>
+            <div class="col-md-5">
+              <mat-form-field appearance="fill">
+                <input  required name="lastName" [(ngModel)] = "user.lastName" type="text" matInput placeholder="Your lastName">
+              </mat-form-field>
+            </div>
+            <div class="col-md-5">
+              <mat-form-field appearance="fill">
+                <input  required name="username" [(ngModel)] = "user.username" type="text" matInput placeholder="Your Username">
+              </mat-form-field>
+            </div>
+            <div class="col-md-5">
+              <mat-form-field appearance="fill">
+                <input required name="email" [(ngModel)] = "user.email" type="email" matInput placeholder="Your email">
+              </mat-form-field>
+            </div>
+            <div class="col-md-5">
+              <mat-form-field appearance="fill">
+                <input required name="phone" [(ngModel)] = "user.phone" type="tel" matInput placeholder="Your phone number 55-555-55-55" >
+              </mat-form-field>
+            </div>
+            <div class="col-md-5">
+              <mat-form-field appearance="fill" >
+                <input required name="password" [(ngModel)]= "user.password" type="password"  matInput placeholder="Your password">
+              </mat-form-field>
+            </div>
+
+              <button mat-button type="submit">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
