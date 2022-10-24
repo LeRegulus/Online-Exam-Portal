@@ -29,12 +29,11 @@ export class RegisterComponent implements OnInit {
     this.userService.addUser(this.user).subscribe(
       (data) => {
         console.log(data);
-        Swal.fire('Registration success', 'Please chek your mail to activate your account.', 'success');
+        Swal.fire('Registration success', 'Please check your mail to activate your account.', 'success');
         this.route.navigate(['/login']);
       },
       (error) => {
-        console.log(error);
-        Swal.fire('Registration failed', 'Something went wrong.', 'error');
+        Swal.fire('Registration failed', 'User or email already exists use.', 'error');
         this.route.navigate(['/register']);
       }
     )

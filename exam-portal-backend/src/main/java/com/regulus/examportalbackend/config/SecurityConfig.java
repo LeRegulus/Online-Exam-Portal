@@ -46,16 +46,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http
+                .cors()
+                .and()
                 .csrf()
                 .disable()
-                .cors()
-                .disable()
                 .authorizeRequests()
-                .antMatchers("/api/login").permitAll()
-                .antMatchers("/api/register").permitAll()
-                .antMatchers("/api/verify").permitAll()
-                .antMatchers("/api/generate-token").permitAll()
-                .antMatchers(HttpMethod.OPTIONS).permitAll()
+                .antMatchers("/exam-portal/login").permitAll()
+                .antMatchers("/exam-portal/register").permitAll()
+                .antMatchers("/exam-portal/verify").permitAll()
+                .antMatchers("/exam-portal/generate-token").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -68,4 +67,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
+
+
 }

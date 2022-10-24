@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/exam-portal")
 public class AuthController {
 
     private final AuthService authService;
@@ -40,6 +40,10 @@ public class AuthController {
     public Boolean verifyUser(@Param("code") String code) {
         return authService.verify(code);
     }
-    
+
+    @GetMapping("/current-user")
+    public User currentUser(Principal principal){
+        return (User) this.userService.loadUserByUsername(principal.getName());
+    }
 
 }

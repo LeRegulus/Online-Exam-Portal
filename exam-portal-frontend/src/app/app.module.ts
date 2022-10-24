@@ -17,6 +17,24 @@ import {authInterceptorProviders} from "./services/auth.interceptor";
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { TrainerDashboardComponent } from './pages/trainer/trainer-dashboard/trainer-dashboard.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from "@angular/material/card";
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import {MatIconModule} from "@angular/material/icon";
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import {MatTableModule} from "@angular/material/table";
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
+import { ViewQuizComponent } from './pages/admin/view-quiz/view-quiz.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatSelectModule} from "@angular/material/select";
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +47,18 @@ import { TrainerDashboardComponent } from './pages/trainer/trainer-dashboard/tra
     DashboardComponent,
     UserDashboardComponent,
     TrainerDashboardComponent,
+    ProfileComponent,
+    SidebarComponent,
+    WelcomeComponent,
+    ViewCategoriesComponent,
+    AddCategoriesComponent,
+    ViewQuizComponent,
+    AddQuizComponent,
+    UpdateQuizComponent,
+    ViewQuizQuestionsComponent,
+    AddQuestionComponent,
+    UserSidebarComponent,
+    LoadQuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +68,12 @@ import { TrainerDashboardComponent } from './pages/trainer/trainer-dashboard/tra
     AppRoutingModule,
     MatInputModule,
     MatButtonModule,
+    MatListModule,
+    MatCardModule,
+    MatIconModule,
+    MatTableModule,
+    MatSlideToggleModule,
+    MatSelectModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -12,8 +12,12 @@ export class LoginService {
 
   constructor(private http : HttpClient) { }
 
+  public getCurrentUser(){
+    return this.http.get(`${baseUrl}/current-use`);
+  }
+
   public login(authRequest: any){
-    return this.http.post(`${baseUrl}/api/login`, authRequest);
+    return this.http.post(`${baseUrl}/login`, authRequest);
   }
 
   public loginUser(token:any){

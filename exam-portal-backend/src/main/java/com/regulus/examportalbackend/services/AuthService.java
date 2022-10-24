@@ -1,6 +1,8 @@
 package com.regulus.examportalbackend.services;
 
 import com.regulus.examportalbackend.config.JwtUtil;
+import com.regulus.examportalbackend.helper.UserFoundEmailException;
+import com.regulus.examportalbackend.helper.UserFoundException;
 import com.regulus.examportalbackend.models.LoginRequest;
 import com.regulus.examportalbackend.models.LoginResponse;
 import com.regulus.examportalbackend.models.Role;
@@ -50,9 +52,13 @@ public class AuthService {
 
     public User registerUserService(User user) throws Exception {
         User temp = userRepository.findByUsername(user.getUsername());
+        User temp2 = userRepository.findByEmail(user.getEmail());
         if (temp != null) {
-            throw new Exception("User Already Exists");
-        } else {
+            throw new UserFoundException();
+        }else if (temp2 != null){
+            throw new UserFoundEmailException();
+        }
+        else {
             Role role = roleRepository.findById("USER").isPresent() ? roleRepository.findById("USER").get() : null;
             Set<Role> userRoles = new HashSet<>();
             userRoles.add(role);
@@ -121,7 +127,7 @@ public class AuthService {
         helper.setSubject(subject);
 
         content = content.replace("[[name]]", user.getUsername());
-        String verifyURL = "http://localhost:8090/api/verify?code=" + user.getVerificationCode();
+        String verifyURL = "http://localhost:8090/exam-portal/verify?code=" + user.getVerificationCode();
 
         content = content.replace("[[URL]]", verifyURL);
 

@@ -1,0 +1,10 @@
+{
+  "/url": {
+    "target": "http://localhost:8090/exam-portal",
+    "secure": false,
+    "pathRewrite": {
+      "/url": ""
+    },
+    "changeOrigin": true
+  }
+}

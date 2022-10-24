@@ -1,0 +1,43 @@
+<mat-card>
+  <h3>Your Profile Details</h3>
+  <mat-card-content>
+    <div class="container">
+      <div class="container text-center">
+        <img class="profile-image" src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg" alt="">
+        <h1>{{user.firstName}} {{user.lastName}}</h1>
+      </div>
+      <div class="row">
+          <div class="col-md-10 offset-md-1">
+
+            <table class="table text-center">
+              <tr>
+                <td>Username</td>
+                <td>{{user.username}}</td>
+              </tr>
+              <tr>
+                <td>UserId</td>
+                <td>EXAM{{user.id}}</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>{{user.phoneNumber}}</td>
+              </tr>
+              <tr>
+                <td>Role</td>
+                <td>{{user.authorities[0].authority}}</td>
+              </tr>
+              <tr>
+                <td>Status</td>
+                <td>{{user.enabled?"ACTIVE":"NOT ACTIVE"}}</td>
+              </tr>
+            </table>
+
+          </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="text-center">
+    <button mat-raised-button color="primary">UPDATE</button>
+    <button mat-raised-button color="accent">SHARE</button>
+  </mat-card-actions>
+</mat-card>
