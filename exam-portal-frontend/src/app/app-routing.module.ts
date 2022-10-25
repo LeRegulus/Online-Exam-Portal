@@ -19,6 +19,7 @@ import {UpdateQuizComponent} from "./pages/admin/update-quiz/update-quiz.compone
 import {ViewQuizQuestionsComponent} from "./pages/admin/view-quiz-questions/view-quiz-questions.component";
 import {AddQuestionComponent} from "./pages/admin/add-question/add-question.component";
 import {LoadQuizComponent} from "./pages/user/load-quiz/load-quiz.component";
+import {InstructionsComponent} from "./pages/user/instructions/instructions.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -58,11 +59,11 @@ const routes: Routes = [
         component: UpdateQuizComponent,
       },
       {
-        path: 'view-questions/:id/:title',
+        path: 'view-questions/:qId/:title',
         component: ViewQuizQuestionsComponent,
       },
       {
-        path: 'add-question/:id/:title',
+        path: 'add-question/:qId/:title',
         component: AddQuestionComponent,
       },
     ]
@@ -73,8 +74,16 @@ const routes: Routes = [
     canActivate : [UserGuard],
     children : [
       {
-        path: ':id',
+        path: ':qId',
         component: LoadQuizComponent,
+      },
+      {
+        path: '',
+        component: ProfileComponent,
+      },
+      {
+        path: 'instructions/:qId',
+        component: InstructionsComponent,
       },
     ],
   },

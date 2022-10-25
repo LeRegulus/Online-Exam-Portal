@@ -25,4 +25,16 @@ export class QuizService {
   public updateQuizById(id : any, quiz: any){
     return this.http.put(`${baseUrl}/quiz/${id}`, quiz);
   }
+
+  public getQuizzesOfCategory(cid : any){
+    return this.http.get(`${baseUrl}/quiz/category/${cid}`);
+  }
+
+  public getActiveQuizzesOfCategory(cid : any){
+    return this.http.get(`${baseUrl}/quiz/category/active/${cid}`);
+  }
+
+  public getActiveQuizzes(){
+    return this.http.get(`${baseUrl}/quiz/active/`);
+  }
 }

@@ -1,7 +1,9 @@
 package com.regulus.examportalbackend.services;
 
+import com.regulus.examportalbackend.models.Category;
 import com.regulus.examportalbackend.models.Quiz;
 import com.regulus.examportalbackend.repositories.QuizRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +27,7 @@ public class QuizService {
         quiz1.setMaxMarks(quiz.getMaxMarks());
         quiz1.setNumberOfQuestions(quiz.getNumberOfQuestions());
         quiz1.setCategory(quiz.getCategory());
+        quiz1.setActive(quiz.isActive());
         return this.quizRepository.save(quiz1);
     }
     public List<Quiz> getQuizzes(){
@@ -36,4 +39,17 @@ public class QuizService {
     public void deleteQuiz(Long id){
         quizRepository.deleteById(id);
     }
+
+    public List<Quiz> getQuizzesOfCategory(Category category) {
+        return this.quizRepository.findByCategory(category);
+    }
+
+    public List<Quiz> getActivesQuizzes() {
+        return this.quizRepository.findByActive(true);
+    }
+
+    public List<Quiz> getActivesQuizzesOfCategory(Category category) {
+        return this.quizRepository.findByCategoryAndActive(category, true);
+    }
+
 }

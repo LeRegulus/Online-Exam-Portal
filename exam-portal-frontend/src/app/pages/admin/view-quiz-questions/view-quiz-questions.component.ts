@@ -18,7 +18,7 @@ export class ViewQuizQuestionsComponent implements OnInit {
               private route : Router) { }
 
   ngOnInit(): void {
-    this.id = this.aRoute.snapshot.params['id'];
+    this.id = this.aRoute.snapshot.params['qId'];
     this.title = this.aRoute.snapshot.params['title'];
     this.questionService.getQuestionsOfQuiz(this.id).subscribe(
       (data : any) => {

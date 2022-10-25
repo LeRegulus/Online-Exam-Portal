@@ -49,7 +49,7 @@ export class AddQuizComponent implements OnInit {
 
     this.quizService.addQuiz(this.quizData).subscribe(
       (data) => {
-        Swal.fire('Success', 'Quiz.ts is added successfully', 'success').then((e)=>{
+        Swal.fire('Success', 'Quiz is added successfully', 'success').then((e)=>{
           this.route.navigate(['/admin/quizzes'])
         });
       },

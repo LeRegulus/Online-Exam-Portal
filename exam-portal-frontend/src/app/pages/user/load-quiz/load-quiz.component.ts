@@ -16,21 +16,34 @@ export class LoadQuizComponent implements OnInit {
               private  quizService : QuizService) { }
 
   ngOnInit(): void {
-    this.catId = this.aRoute.snapshot.params['id'];
-    if (this.catId == 0){
-        this.quizService.quizzes().subscribe(
-          (data : any) => {
-            this.quizzes = data;
-            console.log(this.quizzes);
-          },
-          (error) => {
-            console.log(error);
-            Swal.fire('Error', 'Error in loading data', 'error');
-          }
-        );
-    }else{
-
-    }
+    this.aRoute.params.subscribe(
+      (params : any ) => {
+        this.catId = params.qId;
+        if (this.catId == 0){
+          this.quizService.getActiveQuizzes().subscribe(
+            (data : any) => {
+              this.quizzes = data;
+              console.log(this.quizzes);
+            },
+            (error) => {
+              console.log(error);
+              Swal.fire('Error', 'Error in loading data', 'error');
+            }
+          );
+        }else{
+          this.quizService.getActiveQuizzesOfCategory(this.catId).subscribe(
+            (data : any) => {
+              this.quizzes = data;
+              console.log(this.quizzes);
+            },
+            (error) => {
+              console.log(error);
+              Swal.fire('Error', 'Error in loading data', 'error');
+            }
+          );
+        }
+      }
+    );
   }
 
 }

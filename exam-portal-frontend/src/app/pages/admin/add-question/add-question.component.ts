@@ -27,7 +27,7 @@ export class AddQuestionComponent implements OnInit {
   constructor(private aRoute : ActivatedRoute, private questionService : QuestionService, private route : Router) { }
 
   ngOnInit(): void {
-    this.id = this.aRoute.snapshot.params['id'];
+    this.id = this.aRoute.snapshot.params['qId'];
     this.title = this.aRoute.snapshot.params['title'];
     this.question.quiz['qid'] = this.id;
 

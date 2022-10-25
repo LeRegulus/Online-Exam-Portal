@@ -1,9 +1,12 @@
 package com.regulus.examportalbackend.controllers;
 
+import com.regulus.examportalbackend.models.Category;
 import com.regulus.examportalbackend.models.Quiz;
 import com.regulus.examportalbackend.services.QuizService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -42,4 +45,22 @@ public class QuizController {
         this.quizService.deleteQuiz(id);
     }
 
+    @GetMapping("/category/{cid}")
+    public List<Quiz> getQuizzesOfCategory(@PathVariable("cid") long cid){
+        Category category = new Category();
+        category.setCId(cid);
+        return this.quizService.getQuizzesOfCategory(category);
+    }
+
+    @GetMapping("/category/active/{cid}")
+    public List<Quiz> getActivesQuizzesOfCategory(@PathVariable("cid") long cid){
+        Category category = new Category();
+        category.setCId(cid);
+        return this.quizService.getActivesQuizzesOfCategory(category);
+    }
+
+    @GetMapping("/active")
+    public List<Quiz> getQuizzesOfCategory(){
+        return this.quizService.getActivesQuizzes();
+    }
 }

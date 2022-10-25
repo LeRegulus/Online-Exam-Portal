@@ -20,7 +20,10 @@
       <li><a href="#section6">Contact</a></li>
       <li><a *ngIf="!isLoggedIn" routerLink="/register" class="external">Register</a></li>
       <li><a *ngIf="!isLoggedIn" class="external" routerLink="/login">login</a></li>
-      <li><a *ngIf="isLoggedIn && user" routerLink="/admin/profile"  class="external">{{loginService.getUser().username}}</a></li>
+      <li *ngIf="isLoggedIn && user">
+        <a *ngIf="loginService.getUserRole() =='ADMIN' "  routerLink="/admin/profile"  class="external">{{loginService.getUser().username}}</a>
+        <a *ngIf="loginService.getUserRole() =='USER' "  routerLink="/user/"  class="external">{{loginService.getUser().username}}</a>
+      </li>
       <li><a *ngIf="isLoggedIn" (click)="logout()"  class="external">Logout</a></li>
     </ul>
   </nav>
