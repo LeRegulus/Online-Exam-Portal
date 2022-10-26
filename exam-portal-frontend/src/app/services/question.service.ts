@@ -13,11 +13,19 @@ export class QuestionService {
     return this.http.get(`${baseUrl}/question/quiz/${id}`);
   }
 
+  public getQuestionsOfQuizForTest(id : any){
+    return this.http.get(`${baseUrl}/question/quiz/${id}`);
+  }
+
   public addQuestion(question : any){
     return this.http.post(`${baseUrl}/question/`, question);
   }
 
   public deleteQuestion(id : any){
     return this.http.delete(`${baseUrl}/question/${id}`);
+  }
+
+  public evalQuiz(questions : any){
+    return this.http.post(`${baseUrl}/question/eval-quiz`, questions);
   }
 }

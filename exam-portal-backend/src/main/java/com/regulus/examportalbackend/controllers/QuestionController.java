@@ -7,10 +7,7 @@ import com.regulus.examportalbackend.services.QuizService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -60,6 +57,28 @@ public class QuestionController {
         }
         Collections.shuffle(questions);
         return ResponseEntity.ok(questions);
+    }
+
+    //eval Quiz
+    @PostMapping("/eval-quiz")
+    public ResponseEntity<?> evalQuiz(@RequestBody List<Question> questions){
+        System.out.println(questions);
+        double marksGot = 0;
+        int correctAnswers = 0;
+        int attemptes = 0;
+        for (Question q : questions) {
+            Question question = this.questionService.get(q.getQuestId());
+            if (question.getAnswer().equals(q.getGivenAnswer())){
+                correctAnswers++;
+                double markSingle = questions.get(0).getQuiz().getMaxMarks()/questions.size();
+                marksGot += markSingle;
+            }
+            if (q.getGivenAnswer() != null){
+                attemptes++;
+            }
+        };
+        Map<String, Object> map = Map.of("marksGot", marksGot,"correctAnswer", correctAnswers, "attemptes", attemptes);
+        return ResponseEntity.ok(map);
     }
 
 }

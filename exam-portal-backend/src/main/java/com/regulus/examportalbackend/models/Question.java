@@ -1,5 +1,6 @@
 package com.regulus.examportalbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -30,7 +31,11 @@ public class Question {
 
     private String option4;
 
+    @JsonIgnore
     private String answer;
+
+    @Transient
+    private String givenAnswer;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Quiz quiz;

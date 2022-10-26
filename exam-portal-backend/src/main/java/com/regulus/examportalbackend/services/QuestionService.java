@@ -42,4 +42,8 @@ public class QuestionService {
     public void deleteQuestion(Long id){
         this.questionRepository.deleteById(id);
     }
+
+    public Question get(long id){
+        return this.questionRepository.getOne(id);
+    }
 }
