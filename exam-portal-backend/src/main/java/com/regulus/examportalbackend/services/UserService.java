@@ -1,23 +1,28 @@
 package com.regulus.examportalbackend.services;
 
 import com.regulus.examportalbackend.helper.UserFoundException;
-import com.regulus.examportalbackend.models.Quiz;
 import com.regulus.examportalbackend.models.User;
 import com.regulus.examportalbackend.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+    private final PasswordEncoder passwordEncoder;
+
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -52,16 +57,6 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-
-//    public User updateUser(User user, long id){
-//        User user1 = userRepository.findById(id);
-//        user1.setEmail(user.getEmail());
-//        user1.setFirstName(user.getFirstName());
-//        user1.setLastName(user1.getLastName());
-//        user1.setUsername(user1.getUsername());
-//
-//    }
-
     public void deleteUser(Long id){
         userRepository.deleteById(id);
     }
@@ -74,6 +69,12 @@ public class UserService implements UserDetailsService {
         user1.setUsername(user.getUsername());
         user1.setEmail(user.getEmail());
         user1.setPhoneNumber(user.getPhoneNumber());
+        return userRepository.save(user1);
+    }
+
+    public User changePassword(User user, long id){
+        User user1 = userRepository.findById(id).get();
+        user1.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user1);
     }
 }

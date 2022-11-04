@@ -24,11 +24,13 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.transaction.Transactional;
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@Transactional
 public class AuthService {
 
     private final RoleRepository roleRepository;

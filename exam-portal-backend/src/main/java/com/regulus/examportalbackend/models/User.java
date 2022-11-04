@@ -1,5 +1,7 @@
 package com.regulus.examportalbackend.models;
 
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,6 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 @ToString
 @Entity
 @Table(name = "users")
@@ -47,6 +50,7 @@ public class User implements UserDetails {
     @Column(name = "is_active")
     private boolean isActive;
 
+    @JsonProperty("roles")
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_role",
             joinColumns = {

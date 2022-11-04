@@ -39,6 +39,11 @@ public class UserController {
         return this.userService.updateUser(user, id);
     }
 
+    @PutMapping("/changePassword/{id}")
+    public User changePassword(@PathVariable("id") long id,@RequestBody User user){
+        return this.userService.changePassword(user, id);
+    }
+
     @DeleteMapping("/{id}")
     private void deleteUser(@PathVariable("id") long id){
         this.userService.deleteUser(id);

@@ -4,9 +4,11 @@ import com.regulus.examportalbackend.models.Category;
 import com.regulus.examportalbackend.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;

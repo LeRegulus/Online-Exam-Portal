@@ -63,4 +63,6 @@ public class QuizController {
     public List<Quiz> getQuizzesOfCategory(){
         return this.quizService.getActivesQuizzes();
     }
+
+
 }

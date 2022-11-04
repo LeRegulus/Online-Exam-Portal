@@ -5,9 +5,11 @@ import com.regulus.examportalbackend.models.Quiz;
 import com.regulus.examportalbackend.repositories.QuestionRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class QuestionService {
 
     private final QuestionRepository questionRepository;
