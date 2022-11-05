@@ -1,0 +1,85 @@
+<section class="sample-page">
+  <div class="container" data-aos="fade-up" *ngIf="questions.length > 0">
+    <div class="section-header">
+      <span>Examination Start</span>
+      <h2></h2>
+    </div>
+    <div class="row gy-4" style="background-color: #edefed">
+      <div class="col-md-4" *ngIf="!isSubmit">
+        <h1>Quiz : <b>{{questions[0].quiz.title}}</b></h1><br><br>
+        <h3>Progress Timer</h3>
+        <p>Quiz will automatically submitted when timer reaches 0:0:0</p>
+        <h1 class="text-center">{{getFormattedTimer()}}</h1>
+        <mat-spinner color="accent" mode="determinate" [value]="(timer / (this.questions.length* 2 * 60)) * 100" style="margin: auto"></mat-spinner>
+      </div>
+      <div class="col-md-8" *ngIf="!isSubmit">
+
+        <div class="row m-3" *ngFor="let q of questions; let i = index">
+          <h1><p><b>Q{{i + 1}})</b> <span class="ml10" [innerHTML]="q.content"></span></p></h1>
+          <hr>
+          <div class="row m-2">
+            <div class="col-md-6">
+              <input type="radio" [value]="q.option1" [name]="'answer'+i" [(ngModel)]="q.givenAnswer">  {{q.option1}}
+            </div>
+            <div class="col-md-6">
+              <input type="radio" [value]="q.option2" [name]="'answer'+i" [(ngModel)]="q.givenAnswer">  {{q.option2}}
+            </div>
+          </div>
+          <div class="row m-2">
+            <div class="col-md-6">
+              <input type="radio" [value]="q.option3" [name]="'answer'+i" [(ngModel)]="q.givenAnswer">  {{q.option3}}
+            </div>
+            <div class="col-md-6">
+              <input type="radio" [value]="q.option4" [name]="'answer'+i" [(ngModel)]="q.givenAnswer">  {{q.option4}}
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div class="container text-center mt20 mb20">
+          <button (click)="submitQuiz()" mat-raised-button color="primary">Submit Quiz</button>
+        </div>
+        <br><br>
+      </div>
+      <div class="col-md-4" *ngIf="isSubmit">
+        <br><br>
+         <h1>Quiz : <b>{{questions[0].quiz.title}}</b></h1>
+        <hr>
+        <h1> Name : <b>{{user.firstName}} {{user.lastName}}</b></h1>
+        <hr>
+         <h1> Date : <b>{{date}}</b></h1>
+        <hr>
+        <h1>Maximum Marks : <b>{{questions[0].quiz.maxMarks}}</b></h1>
+        <hr>
+         <h1>Number of Questions : <b>{{questions[0].quiz.numberOfQuestions}}</b></h1>
+        <hr>
+        <h1>Correct Answer : <b>{{correctAnswers}}</b></h1>
+      </div>
+      <div class="col-md-8" *ngIf="isSubmit">
+        <div class="row">
+          <h1>Quiz Result</h1>
+          <hr>
+          <h3><b>{{user.firstName}} {{user.lastName}} you got {{marksGot}}/ {{questions[0].quiz.numberOfQuestions}} </b></h3>
+          <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878">
+            <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878">
+              <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
+              <br><br>
+              <span style="font-size:25px"><i>This is to certify that</i></span>
+              <br><br>
+              <span style="font-size:30px"><b>{{user.firstName}} {{user.lastName}} </b></span><br/><br/>
+              <span style="font-size:25px"><i>has completed the quiz</i></span> <br/><br/>
+              <span style="font-size:30px">{{questions[0].quiz.title}}</span> <br/><br/>
+              <span style="font-size:20px">with score of <b>{{marksGot}}</b></span> <br/><br/><br/><br/>
+              <span style="font-size:25px"><i>dated</i></span><br>
+              {{date}}
+            </div>
+          </div>
+          <div class="text-center">
+            <button style="width: 100px;" class="btn btn-primary" (click)="printPage()">Print</button>
+            <button style="width: 100px;" class="btn btn-primary" [routerLink]="'/user/0'">Home</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

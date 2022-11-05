@@ -1,0 +1,68 @@
+<!-- ======= Services Section ======= -->
+<section id="service" class="services pt-0">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>Quizzes</h2>
+
+    </div>
+
+    <div class="row gy-4">
+
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Max Marks</th>
+          <th>Number Questions</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let q of quizzes">
+          <td>
+            <p class="fw-bold mb-1">{{q.title}}</p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{q.category.title}}</p>
+          </td>
+          <td>
+            <p class="fw-bold mb-1">{{q.maxMarks}}</p>
+          </td>
+          <td>
+            <p class="fw-bold mb-1">{{q.numberOfQuestions}}</p>
+          </td>
+          <td>
+            <button type="button" [routerLink]="'/admin/view-questions/' + q.qid + '/' + q.title" class="btn btn-primary btn-sm btn-rounded">
+              Questions
+            </button>&nbsp;
+            <button type="button" [routerLink]="'/admin/quiz/' + q.qid" routerLink="" class="btn btn-primary btn-sm btn-rounded">
+              Update
+            </button>&nbsp;
+            <button type="button" (click)="deleteQuiz(q.qid)" class="btn btn-danger btn-sm btn-rounded">
+              Delete
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+<!--      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100" *ngFor="let q of quizzes">-->
+<!--        <div class="card" style="font-size: small">-->
+<!--          <h3><a href="service-details.html" class="stretched-link">{{q.title}}</a></h3>-->
+<!--          <h5>Details Quiz</h5>-->
+<!--          <p>Category :<b>{{q.category.title}}</b></p>-->
+<!--          <p>MaxMarks :<b>{{q.maxMarks}}</b></p>-->
+<!--          <p>Number of Questions :<b>{{q.numberOfQuestions}}</b></p>-->
+<!--          <p>{{q.description}}</p>-->
+<!--          <span style="display: inline"><a [routerLink]="'/admin/view-questions/' + q.qid + '/' + q.title" style="width: 35%" class="btn btn-primary">Questions</a>-->
+<!--            <a [routerLink]="'/admin/quiz/' + q.qid "style="width: 30%" class="btn btn-primary">Update</a>-->
+<!--            <a (click)="deleteQuiz(q.qid)" style="width: 30%" class="btn btn-danger">Delete</a></span>-->
+<!--        </div>-->
+<!--      </div>&lt;!&ndash; End Card Item &ndash;&gt;-->
+
+    </div>
+
+  </div>
+</section><!-- End Services Section -->

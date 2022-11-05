@@ -1,0 +1,48 @@
+<h1>All Tests Categories</h1>
+<div class="row gy-4">
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of categories">
+      <td>
+        <div class="d-flex align-items-center">
+            <p class="fw-bold mb-1">{{c.title}}</p>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{c.description}}</p>
+      </td>
+      <td>
+        <button type="button" routerLink="" class="btn btn-primary btn-sm btn-rounded">
+          Edit
+        </button>&nbsp;
+        <button type="button" routerLink="" class="btn btn-danger btn-sm btn-rounded">
+          Delete
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div>
+  </div>
+
+<!--  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up"  *ngFor="let c of categories">-->
+<!--    <div class="icon flex-shrink-0"><i class="fa-solid fa-cart-flatbed"></i></div>-->
+<!--    <div>-->
+<!--      <h4 class="title">{{c.title}}</h4>-->
+<!--      <p class="description">{{c.description}}</p>-->
+<!--      <a routerLink="" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>-->
+<!--    </div>-->
+<!--  </div>-->
+</div>
+
+<div class="text-center" style="margin-top: 100px;">
+  <a routerLink="/admin/add-category" class="btn btn-primary">Add New Category</a>
+</div>
+

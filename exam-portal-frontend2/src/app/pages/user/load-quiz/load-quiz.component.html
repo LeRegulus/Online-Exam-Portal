@@ -1,0 +1,30 @@
+<!-- ======= Pricing Section ======= -->
+<section id="pricing" class="pricing">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <span>Quizzes</span>
+      <h2>Quizzes</h2>
+
+    </div>
+    <div class="container bootstrap snippets bootdeys">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 content-card" *ngFor="let q of quizzes">
+          <div class="card-big-shadow">
+            <div class="card card-just-text" data-background="color" data-color="blue" data-radius="none">
+              <div class="content">
+                <h6 class="category">{{q.category.title}}</h6>
+                <h1 class="title"><a href="#">{{q.title | uppercase}}</a></h1>
+                <p class="description truncate">{{q.description}} </p>
+                <p class="description">Questions : <b>{{q.numberOfQuestions}}</b> </p>
+                <p class="description">Max Marks : <b>{{q.maxMarks}} </b></p>
+                <p class="description" ><a class="btn btn-primary" [routerLink]="'/user/instructions/' + q.qid">Start Quiz</a></p>
+              </div>
+            </div> <!-- end card -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Pricing Section -->

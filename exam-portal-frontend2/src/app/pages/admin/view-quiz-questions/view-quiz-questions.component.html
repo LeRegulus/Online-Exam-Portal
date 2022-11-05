@@ -1,0 +1,43 @@
+<!-- ======= Services Section ======= -->
+<section id="service" class="services pt-0">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>Questions</h2>
+    </div>
+
+    <div class="row gy-4">
+      <div class="container">
+        <button class="btn btn-primary" [routerLink]="'/admin/add-question/' + id + '/' + title">Add Question</button>
+      </div>
+      <div class="card col-md-6" *ngFor="let q of questions; let i = index">
+        <div class="card-header">
+          <b>Q{{i + 1}}) </b>
+          <span class="ml20" [innerHTML]="q.content"></span>
+        </div>
+        <div class="card-content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <p> <b>1)</b> {{q.option1}}</p>
+              </div>
+              <div class="col-md-6">
+                <p> <b>2)</b> {{q.option2}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p> <b>3)</b> {{q.option3}}</p>
+              </div>
+              <div class="col-md-6">
+                <p> <b>4)</b> {{q.option4}}</p>
+              </div>
+            </div>
+            <p class="mt20"><b>Correct Answer : {{q.answer}}</b></p>
+          </div>
+        </div>
+        <button class="btn btn-danger" style="width: 150px;" (click)="deleteQuestion(q.questId)">Delete</button>
+      </div>
+    </div>
+  </div>
+</section>

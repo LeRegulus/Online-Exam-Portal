@@ -1,0 +1,36 @@
+<!-- ======= Get a Quote Section ======= -->
+<section id="get-a-quote" class="get-a-quote">
+  <div class="container" data-aos="fade-up">
+    <div class="row g-0">
+      <div class="col-lg-5 quote-bg" style="background-image: url(assets/assets/img/quote-bg.jpg);"></div>
+      <div class="col-lg-7">
+        <h1 class="text-center">Add Category</h1>
+        <mat-card>
+          <mat-card-content>
+            <div class="bootstrap-wrapper">
+              <div class="row">
+                <div class="col-md-8 offset-md-2">
+                  <form (ngSubmit)="formSubmit()">
+                    <mat-form-field class="w100" appearance="outline">
+                      <mat-label>Title</mat-label>
+                      <input autofocus  type="text" name="title" matInput placeholder="Enter title here" [(ngModel)]="category.title" required />
+                    </mat-form-field>
+                    <mat-form-field class="w100" appearance="outline">
+                      <mat-label>Description</mat-label>
+                      <textarea name="description" matInput placeholder="Enter description here" rows="15" [(ngModel)]="category.description" required></textarea>
+                    </mat-form-field>
+                    <div class="container text-center mt15">
+                      <button mat-raised-button color="primary">ADD</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div><!-- End Quote Form -->
+
+    </div>
+
+  </div>
+</section><!-- End Get a Quote Section -->

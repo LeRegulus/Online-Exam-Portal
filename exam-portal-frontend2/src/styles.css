@@ -1,0 +1,16 @@
+
+.bgim{
+  background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
+  height: 600px;
+}
+.mask{
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.w100{
+  width: 100%;
+}
