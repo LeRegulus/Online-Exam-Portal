@@ -28,4 +28,8 @@ export class QuestionService {
   public evalQuiz(questions : any){
     return this.http.post(`${baseUrl}/question/eval-quiz`, questions);
   }
+
+  public sendResult(idUser :number, markGot:any, correctAnswers:any){
+    return this.http.post(`${baseUrl}/question/send-result`, {idUser:idUser, markGot:markGot, correctAnswers:correctAnswers});
+  }
 }

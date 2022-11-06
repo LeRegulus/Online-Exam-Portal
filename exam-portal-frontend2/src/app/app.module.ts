@@ -51,6 +51,9 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { UpdateProfileComponent } from './pages/user/update-profile/update-profile.component';
 import { ChangePasswordComponent } from './pages/user/change-password/change-password.component';
+import { AddCategoryComponent } from './pages/user/add-category/add-category.component';
+import { AddQuizzComponent } from './pages/user/add-quizz/add-quizz.component';
+import { AddQuuestionsComponent } from './pages/user/add-quuestions/add-quuestions.component';
 
 
 @NgModule({
@@ -87,6 +90,9 @@ import { ChangePasswordComponent } from './pages/user/change-password/change-pas
     ServicesComponent,
     UpdateProfileComponent,
     ChangePasswordComponent,
+    AddCategoryComponent,
+    AddQuizzComponent,
+    AddQuuestionsComponent,
   ],
     imports: [
         BrowserModule,

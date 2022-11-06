@@ -14,4 +14,5 @@ public interface QuizRepository extends JpaRepository<Quiz, Long> {
     List<Quiz> findByActive(Boolean b);
 
     List<Quiz> findByCategoryAndActive(Category category, Boolean b);
+
 }

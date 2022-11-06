@@ -54,4 +54,5 @@ public class QuizService {
         return this.quizRepository.findByCategoryAndActive(category, true);
     }
 
+
 }

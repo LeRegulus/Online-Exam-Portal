@@ -26,6 +26,7 @@ export class StartComponent implements OnInit {
   color: ThemePalette = 'primary';
   mode: ProgressBarMode = 'determinate';
   date : any;
+  idUser !: number;
 
   constructor(private locationSt : LocationStrategy,
               private aRoute : ActivatedRoute,
@@ -92,6 +93,8 @@ export class StartComponent implements OnInit {
   }
 
   evalQuiz(){
+    this.user = this.loginService.getUser();
+    this.idUser = this.user.userId;
     this.questionService.evalQuiz(this.questions).subscribe(
       (data : any) => {
         console.log(data);
@@ -101,6 +104,7 @@ export class StartComponent implements OnInit {
         this.correctAnswers = data.correctAnswer;
         this.isSubmit = true;
         this.date = this.datePipe.transform(Date.now(), 'yyyy-MM-dd');
+        console.log(this.idUser)
       },
       (error) => {
         console.log(error);

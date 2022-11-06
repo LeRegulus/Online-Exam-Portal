@@ -26,6 +26,10 @@ import {ServicesComponent} from "./pages/services/services.component";
 import {ProfilComponent} from "./pages/profil/profil.component";
 import {UpdateProfileComponent} from "./pages/user/update-profile/update-profile.component";
 import {ChangePasswordComponent} from "./pages/user/change-password/change-password.component";
+import {AddUserComponent} from "./pages/admin/add-user/add-user.component";
+import {AddCategoryComponent} from "./pages/user/add-category/add-category.component";
+import {AddQuizzComponent} from "./pages/user/add-quizz/add-quizz.component";
+import {AddQuuestionsComponent} from "./pages/user/add-quuestions/add-quuestions.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -76,6 +80,10 @@ const routes: Routes = [
         component: UsersComponent,
       },
       {
+        path: 'add-user',
+        component: AddUserComponent,
+      },
+      {
         path: 'user/:qId',
         component: UpdateUserComponent,
       },
@@ -101,6 +109,18 @@ const routes: Routes = [
       {
         path: 'categories',
         component: CategoriesComponent,
+      },
+      {
+        path: 'add-quiz',
+        component: AddQuizzComponent,
+      },
+      {
+        path: 'add-category',
+        component: AddCategoryComponent,
+      },
+      {
+        path: 'add-question/:qId/:title',
+        component: AddQuuestionsComponent,
       },
       {
         path: ':qId',

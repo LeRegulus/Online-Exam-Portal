@@ -17,7 +17,7 @@ export class UserService {
   public getUsers(){
     return this.http.get(`${baseUrl}/users/`);
   }
-  public adUser(user : any){
+  public createUser(user : any){
     return this.http.post(`${baseUrl}/users/`, user);
   }
   public deleteUser(id : any){

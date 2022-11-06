@@ -1,5 +1,6 @@
 package com.regulus.examportalbackend.controllers;
 
+import com.regulus.examportalbackend.helper.UserFoundException;
 import com.regulus.examportalbackend.models.Quiz;
 import com.regulus.examportalbackend.models.User;
 import com.regulus.examportalbackend.services.UserService;
@@ -32,6 +33,11 @@ public class UserController {
     @GetMapping("/{username}")
     public User getUser(@PathVariable("username") String username){
         return  this.userService.getUserbyUsername(username);
+    }
+
+    @PostMapping("/")
+    public User addUser(@RequestBody User user) throws UserFoundException {
+        return  this.userService.createUser(user);
     }
 
     @PutMapping("/{id}")
